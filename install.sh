@@ -4,6 +4,8 @@ losetup /dev/loop1 /data/rootfs.img
 mkdir /rootfs && mount /dev/loop1 /rootfs
 cp ./etc/systemd/system/apt-fix.service /rootfs/etc/systemd/system/
 cp ./etc/systemd/system/samsung-hwc.service /rootfs/etc/systemd/system/
+cp ./etc/systemd/system/epoch.service /rootfs/etc/systemd/system/
+cp ./etc/systemd/system/altresolv.service /rootfs/etc/systemd/system/
 cp ./etc/systemd/system/systemd-resolved.service /rootfs/etc/systemd/system/
 cp ./etc/systemd/system/systemd-timesyncd.service /rootfs/etc/systemd/system/
 cp ./etc/apt/sources.list.d/* /rootfs/etc/apt/sources.list.d/
@@ -14,6 +16,6 @@ cp -r ./usr/bin/* /rootfs/usr/
 rm -f /rootfs/etc/resolv.conf
 cp ./etc/resolv.conf /rootfs/etc/
 cp -r ./deb/ /rootfs/
-chroot /rootfs/ /bin/bash -c 'export PATH="$PATH:/usr/bin:/usr/sbin:/bin:/sbin" && systemctl enable apt-fix samsung-hwc && systemctl mask systemd-resolved systemd-timesyncd'
+chroot /rootfs/ /bin/bash -c 'export PATH="$PATH:/usr/bin:/usr/sbin:/bin:/sbin" && systemctl enable apt-fix samsung-hwc epoch altresolv && systemctl mask systemd-resolved systemd-timesyncd'
 chroot /rootfs/ /bin/bash -c 'export PATH="$PATH:/usr/bin:/usr/sbin:/bin:/sbin" && dpkg -i /deb/*.deb'
 echo "Now just reboot"
