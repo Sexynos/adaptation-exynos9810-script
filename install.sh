@@ -11,7 +11,7 @@ cp ./etc/systemd/system/bluetoothalt.service /rootfs/etc/systemd/system/
 cp ./etc/apt/sources.list.d/* /rootfs/etc/apt/sources.list.d/
 cp ./etc/udev/rules.d/70-exynos9810.rules /rootfs/etc/udev/rules.d/
 cp ./usr/share/keyrings/exynos9810.gpg /rootfs/usr/share/keyrings/exynos9810.gpg
-cp -r ./usr/lib/droid-vendor-overlay/ /rootfs/usr/lib/
+cp -r ./usr/lib/droid-system-overlay/ /rootfs/usr/lib/
 cp -r ./usr/bin/* /rootfs/usr/bin/
 rm -f /rootfs/etc/resolv.conf
 cp ./etc/resolv.conf /rootfs/etc/
