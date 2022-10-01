@@ -15,6 +15,7 @@ cp -r ./usr/lib/droid-vendor-overlay/ /rootfs/usr/lib/
 cp -r ./usr/bin/* /rootfs/usr/bin/
 rm -f /rootfs/etc/resolv.conf
 cp ./etc/resolv.conf /rootfs/etc/
+cp -r ./var/lib/bluetooth/ /rootfs/var/lib/bluetooth/
 cp -r ./deb/ /rootfs/
 chroot /rootfs/ /bin/bash -c 'export PATH="$PATH:/usr/bin:/usr/sbin:/bin:/sbin" && systemctl enable apt-fix samsung-hwc epoch altresolv upoweralt bluetoothalt && systemctl mask systemd-resolved systemd-timesyncd upower bluetooth'
 chroot /rootfs/ /bin/bash -c 'export PATH="$PATH:/usr/bin:/usr/sbin:/bin:/sbin" && dpkg -i /deb/*.deb'
