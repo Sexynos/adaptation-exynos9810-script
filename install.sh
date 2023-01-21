@@ -23,5 +23,6 @@ cp -r ./lib/systemd/system/bluebinder.service.d/ /rootfs/lib/systemd/system/
 cp -r ./deb/ /rootfs/
 chroot /rootfs/ /bin/bash -c 'export PATH="$PATH:/usr/bin:/usr/sbin:/bin:/sbin" && rm -f /etc/systemd/system/dbus-org.bluez.service'
 chroot /rootfs/ /bin/bash -c 'export PATH="$PATH:/usr/bin:/usr/sbin:/bin:/sbin" && systemctl mask systemd-resolved systemd-timesyncd upower bluetooth && systemctl enable apt-fix samsung-hwc epoch altresolv upoweralt bluetoothalt batman'
-chroot /rootfs/ /bin/bash -c 'export PATH="$PATH:/usr/bin:/usr/sbin:/bin:/sbin" && dpkg -i /deb/*.deb'
+#chroot /rootfs/ /bin/bash -c 'export PATH="$PATH:/usr/bin:/usr/sbin:/bin:/sbin" && dpkg -i /deb/*.deb'
+echo "If you're installing on top of snapshot 24 then run: chroot /rootfs/ /bin/bash -c 'export PATH="$PATH:/usr/bin:/usr/sbin:/bin:/sbin" && dpkg -i /deb/*.deb'"
 echo "Now just reboot"
