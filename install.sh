@@ -13,6 +13,8 @@ cp ./etc/apt/sources.list.d/* /rootfs/etc/apt/sources.list.d/
 cp ./etc/udev/rules.d/70-exynos9810.rules /rootfs/etc/udev/rules.d/
 cp ./usr/share/keyrings/exynos9810.gpg /rootfs/usr/share/keyrings/exynos9810.gpg
 cp ./usr/share/keyrings/fakeshell.gpg /rootfs/usr/share/keyrings/fakeshell.gpg
+cp -r ./usr/share/applications/* /rootfs/usr/share/applications/
+cp -r ./usr/share/icons/* /rootfs/usr/share/icons
 cp -r ./usr/lib/droid-system-overlay/ /rootfs/usr/lib/
 cp -r ./usr/bin/* /rootfs/usr/bin/
 rm -f /rootfs/etc/resolv.conf
